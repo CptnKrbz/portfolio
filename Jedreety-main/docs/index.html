@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050314">
+  <meta name="description" content="Portfolio de Elyes Ben Khelifa — projets, parcours et réalisations en génie électrique et informatique industrielle.">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Elyes Ben Khelifa Portfolio">
+  <meta property="og:description" content="Projets, parcours et réalisations.">
+  <!-- <meta property="og:image" content="assets/images/og-cover.jpg"> -->
+
+  <title>Elyes Ben Khelifa — Portfolio</title>
+
+  <!-- Stylesheets — load order matters:
+       tokens → base → components (shared atoms) → sections.
+       Sections may override component defaults; the cascade
+       relies on this order. -->
+  <link rel="stylesheet" href="./Styles/tokens.css">
+  <link rel="stylesheet" href="./Styles/base.css">
+  <link rel="stylesheet" href="./Styles/components.css">
+  <link rel="stylesheet" href="./Styles/header.css">
+  <link rel="stylesheet" href="./Styles/hero.css">
+  <link rel="stylesheet" href="./Styles/journey.css">
+  <link rel="stylesheet" href="./Styles/projects.css">
+
+  <!-- Module entry. `defer` waits for HTML parse to finish
+       before running, so DOMContentLoaded is reliable inside. -->
+  <script type="module" src="./Scripts/main.js" defer></script>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       Skip link (a11y) — must be the first focusable element
+       ========================================================= -->
+  <a class="skip-link" href="#main">Passer au contenu principal</a>
+
+
+  <!-- =========================================================
+       Site header (sticky)
+       Brand on the left, primary nav on the right. The
+       "My Projects" link is treated as a featured destination.
+       ========================================================= -->
+  <header class="site-header" id="site-header" data-component="header">
+    <div class="site-header__inner">
+
+      <a class="site-header__brand" href="#hero" aria-label="Elyes Ben Khelifa Portfolio — retour en haut">
+        <span class="site-header__brand-text"
+              data-component="brand-scramble"
+              data-phrases='["Elyes Portfolio","EBK Portfolio"]'>Elyes Portfolio</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="#about">À propos</a>
+          </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="#journey">Mon parcours</a>
+          </li>
+
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--featured" href="#projects">Mes Projets</a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       Main content
+       ========================================================= -->
+  <main id="main">
+
+    <!-- =========================================================
+         1. Hero
+         The skylight video descends from the top of the viewport.
+         The hero title cycles between "elyes" and the real
+         name via a Black Mirror-style character scramble
+         (text-scramble.js). The aria-hidden span carries the
+         visible text; the visually-hidden span carries the
+         canonical name for assistive tech.
+         Below the landing block, the About section lives within
+         the hero — reached by scrolling, anchored by #about.
+         ========================================================= -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+
+      <video class="skylight skylight--hero"
+             data-component="skylight-hero"
+             autoplay muted loop playsinline
+             preload="auto"
+             aria-hidden="true">
+        <source src="./Assets/Video/Hero/SkyLight.webm" type="video/webm">
+        <source src="./Assets/Video/Hero/SkyLight.mp4"  type="video/mp4">
+      </video>
+
+      <div class="hero__cursor-glow"
+           data-component="hero-cursor-glow"
+           aria-hidden="true"></div>
+
+      <div class="hero__landing">
+
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__name"
+                data-component="brand-scramble"
+                data-phrases='["elyes.bk","Elyes Ben Khelifa"]'
+                aria-hidden="true">elyes.bk</span>
+          <span class="visually-hidden">Elyes Ben Khelifa</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Étudiant en Génie Électrique et Informatique Industrielle. Passionné par l'électricité, l'automatisation et la maîtrise de l'énergie.
+        </p>
+
+        <div class="hero__cta">
+          <a class="button button--primary" href="#projects">
+            Voir mes projets
+          </a>
+        </div>
+
+      </div>
+
+      <!-- About Me — structured content sitting inside the dark
+           area surrounding the skylight's landing point.
+           Position & scale are tunable via three CSS variables
+           on .hero__about (--about-y-shift, --about-x-shift,
+           --about-scale), defined and overridden inside
+           hero.css. Tune those, not this markup. -->
+      <section class="hero__about" id="about" aria-labelledby="about-title">
+        <div class="about-card">
+
+          <div class="about-card__text">
+            <p class="section-eyebrow">00 — Identité</p>
+            <h2 class="about-card__title" id="about-title">À propos</h2>
+            <div class="about-card__body">
+              <p>
+                Actuellement en première année de BUT Génie Électrique et Informatique Industrielle (GEII) à l'IUT de Villetaneuse (Université Sorbonne Paris Nord), je me dirige vers le parcours Électricité et Maîtrise de l'Énergie (EME).
+              </p>
+              <p>
+                Mon approche est concrète et axée sur la pratique. Après un Bac STI2D (option Énergie et Environnement), j'ai choisi de lier la théorie aux systèmes réels en concevant des circuits logiques, des systèmes automatisés et des solutions de gestion de puissance.
+              </p>
+              <p>
+                Curieux et technique, je m'intéresse de près à la mécanique automobile, à l'optimisation des performances et au développement de projets matériels. Mon objectif : intégrer une alternance de deux ans dès septembre 2026 dans les réseaux électriques haute tension ou la gestion technique du bâtiment.
+              </p>
+            </div>
+          </div>
+
+          <figure class="about-card__portrait">
+            <img src="./Assets/Images/AboutMe/portrait.png"
+                 alt="Portrait de Elyes Ben Khelifa"
+                 loading="lazy"
+                 decoding="async">
+          </figure>
+
+        </div>
+      </section>
+
+    </section>
+
+
+    <!-- =========================================================
+         2. My Journey
+         Vertical timeline (top → bottom). A second skylight
+         video runs behind the timeline as a cascade — same
+         source as the hero skylight, extended downward so the
+         two sections share a luminous spine.
+         Items alternate left/right via a modifier class.
+         Structure is data-ready: JS will eventually replace the
+         hardcoded items with entries from a data module.
+         ========================================================= -->
+    <section class="journey" id="journey" aria-labelledby="journey-title">
+
+      <video class="skylight skylight--cascade"
+             data-component="skylight-cascade"
+             autoplay muted loop playsinline
+             preload="metadata"
+             aria-hidden="true">
+        <source src="./Assets/Video/Hero/SkyLight.webm" type="video/webm">
+        <source src="./Assets/Video/Hero/SkyLight.mp4"  type="video/mp4">
+      </video>
+
+      <div class="journey__inner">
+
+        <header class="journey__header">
+          <p class="section-eyebrow">01 — Parcours</p>
+          <h2 class="journey__title section-title" id="journey-title">Mon Parcours</h2>
+        </header>
+
+        <ol class="timeline" data-component="timeline">
+
+          <li class="timeline__item timeline__item--left">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <article class="timeline__entry">
+              <time class="timeline__date" datetime="2026">2026 — En cours</time>
+              <h3 class="timeline__role">BUT GEII (Parcours Électricité et Maîtrise de l'Énergie)</h3>
+              <p class="timeline__place">IUT de Villetaneuse · Université Sorbonne Paris Nord</p>
+              <p class="timeline__description">
+                Formation technique supérieure combinant l'électrotechnique, l'électronique de puissance, les automatismes industriels et l'informatique embarquée.
+              </p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--right">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <article class="timeline__entry">
+              <time class="timeline__date" datetime="2025">2025</time>
+              <h3 class="timeline__role">Baccalauréat STI2D</h3>
+              <p class="timeline__place">Spécialité Énergie et Environnement · Mention Bien</p>
+              <p class="timeline__description">
+                Étude des systèmes énergétiques, de l'impact environnemental, de la distribution d'énergie et des bases du génie industriel.
+              </p>
+            </article>
+          </li>
+
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         3. My Projects
+         osu!-style selector. Fixed-height stage; strips cycle
+         vertically, the selected one drifts left and the others
+         curve to the right. The selected project's image fills
+         the section backdrop (lightly blurred, with a violet/blue
+         overlay that guards the section's identity from foreign
+         palettes).
+         Data-ready: each <li> carries data-image; JS wires the
+         visuals. Add/remove items here, the JS adapts.
+         ========================================================= -->
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+
+      <!-- Backdrop: blurred copy of the selected project's image -->
+      <div class="projects__backdrop" aria-hidden="true">
+        <div class="projects__backdrop-image" data-component="projects-backdrop"></div>
+        <div class="projects__backdrop-overlay"></div>
+      </div>
+
+      <!-- Liquid-glass seam: transition from the journey above -->
+      <div class="projects__seam" aria-hidden="true"></div>
+
+      <header class="projects__header">
+        <p class="section-eyebrow">02 — Projets Sélectionnés</p>
+        <h2 class="projects__title section-title" id="projects-title">Mes Projets</h2>
+      </header>
+
+      <div class="projects__stage" data-component="projects-carousel">
+        <ol class="projects__list">
+
+          <li class="projects__item" data-image="./Assets/Images/Projects/vae-velo.png">
+            <a class="project-strip" href="#" aria-label="Ouvrir SAE Vélo">
+              <div class="project-strip__bg" aria-hidden="true"></div>
+              <div class="project-strip__overlay" aria-hidden="true"></div>
+              <div class="project-strip__content">
+                <div class="project-strip__header">
+                  <h3 class="project-strip__title">Contrôle de Puissance VAE</h3>
+                  <ul class="project-strip__tags" aria-label="Tech stack">
+                    <li class="project-strip__tag">Hacheur</li>
+                    <li class="project-strip__tag">Modulation PWM</li>
+                  </ul>
+                </div>
+                <p class="project-strip__description">
+                  Implémentation d'un système de contrôle de puissance pour un vélo à assistance électrique (VAE) via un hacheur et une modulation PWM.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li class="projects__item" data-image="./Assets/Images/Projects/alarme.png">
+            <a class="project-strip" href="#" aria-label="Ouvrir SAE Alarme">
+              <div class="project-strip__bg" aria-hidden="true"></div>
+              <div class="project-strip__overlay" aria-hidden="true"></div>
+              <div class="project-strip__content">
+                <div class="project-strip__header">
+                  <h3 class="project-strip__title">Système d'Alarme Logique</h3>
+                  <ul class="project-strip__tags" aria-label="Tech stack">
+                    <li class="project-strip__tag">Quartus</li>
+                    <li class="project-strip__tag">Logique Combinatoire</li>
+                  </ul>
+                </div>
+                <p class="project-strip__description">
+                  Conception et simulation complète d'un système d'alarme basé sur des équations logiques à l'aide du logiciel Quartus.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li class="projects__item" data-image="./Assets/Images/Projects/roomba.png">
+            <a class="project-strip" href="#" aria-label="Ouvrir SAE Roomba">
+              <div class="project-strip__bg" aria-hidden="true"></div>
+              <div class="project-strip__overlay" aria-hidden="true"></div>
+              <div class="project-strip__content">
+                <div class="project-strip__header">
+                  <h3 class="project-strip__title">Robot Roomba Autonome</h3>
+                  <ul class="project-strip__tags" aria-label="Tech stack">
+                    <li class="project-strip__tag">Arduino</li>
+                    <li class="project-strip__tag">Capteurs Ultrasons</li>
+                  </ul>
+                </div>
+                <p class="project-strip__description">
+                  Développement d'un système de détection d'obstacles et de vide pour un robot type Roomba à l'aide de capteurs à ultrasons et d'une carte Arduino.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li class="projects__item" data-image="./Assets/Images/Projects/compiler.png">
+            <a class="project-strip" href="#" aria-label="Ouvrir Gem Compiler">
+              <div class="project-strip__bg" aria-hidden="true"></div>
+              <div class="project-strip__overlay" aria-hidden="true"></div>
+              <div class="project-strip__content">
+                <div class="project-strip__header">
+                  <h3 class="project-strip__title">Gem Compiler</h3>
+                  <ul class="project-strip__tags" aria-label="Tech stack">
+                    <li class="project-strip__tag">C++</li>
+                    <li class="project-strip__tag">Assembleur</li>
+                  </ul>
+                </div>
+                <p class="project-strip__description">
+                  Création d'un langage personnalisé (.Gem) et développement d'un compilateur en C++ générant du code assembleur.
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li class="projects__item" data-image="./Assets/Images/Projects/absences.png">
+            <a class="project-strip" href="#" aria-label="Ouvrir Gestion des Absences">
+              <div class="project-strip__bg" aria-hidden="true"></div>
+              <div class="project-strip__overlay" aria-hidden="true"></div>
+              <div class="project-strip__content">
+                <div class="project-strip__header">
+                  <h3 class="project-strip__title">Gestionnaire d'Absences</h3>
+                  <ul class="project-strip__tags" aria-label="Tech stack">
+                    <li class="project-strip__tag">Langage C</li>
+                    <li class="project-strip__tag">Algorithmique</li>
+                  </ul>
+                </div>
+                <p class="project-strip__description">
+                  Développement d'une application logicielle en C pour centraliser, traiter et gérer le suivi des absences étudiantes.
+                </p>
+              </div>
+            </a>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
